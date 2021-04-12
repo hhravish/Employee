@@ -1,0 +1,46 @@
+<p >Enter name to search</p><input #search  type ='text'  (keyup) ='searchfun(search.value)' >
+    <p ><b (click)="twoyearolddata()"> click here</b> to get candidates having >= 2 years exp</p>
+    <p><b (click)="notdevelopment()">click here </b>to get candidates not belongs to development</p>
+    <p> <b (click)="alldata()"> click here </b> to get candidates of all exp</p>
+    <p><b (click)="alldata()"> click here </b> to get candidates belongs to all dept</p>
+    
+    <br>
+    <table class=”table-bordered”>
+    <tr>
+    <th>Id</th>
+    <th> Name
+    <i  class="fa fa-arrow-up" (click)="sortAsc()"></i>
+    <i  class="fa fa-arrow-down "  (click)="sortDesc()"></i>
+    </th>
+    <th>Department
+    </th>
+    
+    <th>Joining Date
+    <i class="fa fa-arrow-up"  (click)="sortAscDate()"></i>
+    <i  class="fa fa-arrow-down"  (click)="sortDescDate()"></i>
+    </th>
+    </tr>
+    <tr *ngFor="let x of candidate_data">
+    <td>{{x.id}}</td>
+    <td>{{x.name}}</td>
+    <td>{{x.department}}</td>
+    <td>{{x.joining_date |date:shortDate}}</td>
+    </tr>
+    </table>
+    <br><br>
+    <p><b (click)="countfun()"> click here </b> to get distinct departments and count of candidates in each</p>
+    <br>
+    <table class=”table-bordered”>
+        <tr>
+        <th>Department
+        </th>
+        
+        <th>count
+        </th>
+        </tr>
+        <tr *ngFor="let x of departmentCount |keyvalue">
+        
+        <td>{{x.key}}</td>
+        <td>{{x.value}}</td>
+        </tr>
+        </table>
